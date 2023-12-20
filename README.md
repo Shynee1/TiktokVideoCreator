@@ -1,5 +1,5 @@
 # Tiktok Video Creator
-Python application to automate the creation of Reddit storytime posts.
+Python application to automate the creation of Reddit storytime posts. \
 Manages everything from scraping the Reddit post to composing the final video. 
 
 ## **Features**

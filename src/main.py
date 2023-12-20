@@ -2,6 +2,7 @@ from moviepy.editor import *
 from post_grabber import PostGrabber
 from tiktok_tts import TikTokTTS
 from video_creator import VideoCreator
+import os
 
 subreddit = "amitheasshole"
 category = "top"
@@ -10,6 +11,15 @@ background_audio_path = "assets/background_audios/"
 output_video_path = "outputs/videos/"
 output_audio_path = "outputs/audios/"
 
+# Check if output directories are missing
+if not os.path.exists(output_video_path) or not os.path.exists(output_audio_path):
+    os.makedirs(output_video_path)
+    os.makedirs(output_audio_path)
+
+# Check if background clipss are missing
+if not os.path.exists(background_video_path) or not os.path.exists(background_audio_path):
+    print(f"ERROR: Missing directory '{background_video_path}' or '{background_audio_path}")
+    
 iterations = 0
 post_grabber = PostGrabber(subreddit, category)
 tts = TikTokTTS("en_us_006")

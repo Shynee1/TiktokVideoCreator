@@ -2,7 +2,8 @@
 Python application to automate the creation of Reddit storytime posts. \
 Manages everything from scraping the Reddit post to composing the final video. 
 
-![video_output](https://github.com/Shynee1/TiktokVideoCreator/assets/87081214/8a096d16-1aeb-4b19-9f33-03cfde5330c0)
+![ezgif-4-c383f6ca76](https://github.com/Shynee1/TiktokVideoCreator/assets/87081214/dae518c7-7a8d-48ec-b12c-d5155dc37097)
+
 
 ## **Features**
 - Scrapes the top post from popular subreddit 'AITA'

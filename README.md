@@ -19,5 +19,5 @@ Manages everything from scraping the Reddit post to composing the final video.
 - Add `background_videos` to project's `assets` folder
 - Create [Reddit Developer Application](https://old.reddit.com/prefs/apps/)
 - Add Reddit credentials to `praw.ini`
-- Install packages using ```pip install requirements.txt```
+- Install packages using ```pip install -r requirements.txt```
 - Run `main.py`

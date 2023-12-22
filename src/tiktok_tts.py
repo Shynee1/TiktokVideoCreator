@@ -9,7 +9,7 @@ class TikTokTTS:
 
     # Split a large chunk of text into short pieces
     def split_text(self, text: str, max_size: int) -> list[str]:
-        sentence_delimiters = ['.', '?', '!']
+        sentence_delimiters = ['.', '?', '!', "\""]
         
         split_strs = []
         curr_str = ""
@@ -24,7 +24,7 @@ class TikTokTTS:
                 # Save last word and store overflow for next chunk
                 last_word_index = curr_str.rfind(" ") + 1
                 resized_str = curr_str[:last_word_index]
-                overflow = curr_str[last_word_index]
+                overflow = curr_str[last_word_index:]
                 split_strs.append(resized_str.strip())
                 curr_str = overflow + character
             else:

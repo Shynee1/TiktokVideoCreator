@@ -35,7 +35,7 @@ class VideoCreator:
     # Create subtitles using OpenAI Whisper
     def create_subtitles(self, audio_path: str) -> list[TextClip]:
         result = whisper_timestamped.transcribe(self.whisper, audio_path, compression_ratio_threshold=1.8)
-        print("Successfully transcribed video")
+        print("Transcriptions created")
         clips = []
         segments = result["segments"]
         for i in range(len(segments)):
@@ -47,7 +47,7 @@ class VideoCreator:
                 clips.append(self.create_clip(word, start, end))
                 start = end
 
-        print("Successfully created subtitles")
+        print("Subtitles created")
         return clips
     
     # Create a textclip with the given duration
@@ -82,7 +82,7 @@ class VideoCreator:
         comp = comp.set_duration(tts.duration) 
         self.memory_pool.append(comp) 
 
-        print("Successfully created composition")
+        print("Composition created")
         return comp
     
     def free_memory(self):

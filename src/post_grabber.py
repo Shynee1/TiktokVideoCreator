@@ -1,6 +1,7 @@
 from praw import Reddit
 import random
 import string
+import re
 
 class PostGrabber:
     def __init__(self, subreddit_name: str, post_category: str):
@@ -49,17 +50,29 @@ class PostGrabber:
 
     # Format post text and merge with title
     def get_post_text(self, post: str) -> str:
-        full = ((post.title + " " + post.selftext)
-                .replace("\n", " ")
-                .replace("\t", " ")
-                .replace("AITA", "Am I the Asshole")
-                .replace("SIL", "sister-in-law")
-                .replace("GF", "girlfriend")
-                .replace("”", "")
-                .replace("“", "")
-                .replace("\"", "")
-                .replace("\'", "")
-        )
+        full = post.title + " " + post.selftext
+        formatting = {
+            "[\n\t]": " ",
+            "[“”\"]": "",
+            "[-]": ".",
+            "&#x200B;": " ",
+            "aita": "am I the asshole",
+            "sil": "sister-in-law",
+            "gf": "girlfriend",
+            "cuz": "because",
+            "ffs": "for fuck's sake",
+            "imo": "in my opinion",
+            "pos": "piece-of-shit",
+            "bf": "boyfriend",
+            "bil": "brother-in-law"
+        }
+
+        # Filter any post-specific formatting or abreviations
+        for key in formatting:
+            if key[0] == '[':
+                full = re.sub(r'{0}'.format(key), formatting[key], full, flags=re.IGNORECASE)
+            else:
+                full = re.sub(r'\b{0}\b'.format(key), formatting[key], full, flags=re.IGNORECASE)
 
         # Removes last punctuation mark from the text
         if (full[-1] in string.punctuation ):

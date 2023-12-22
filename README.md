@@ -13,9 +13,10 @@ Manages everything from scraping the Reddit post to composing the final video.
 - Adds background audio/video and composes final result with MoviePy
   
 ## **Documentation**
-- Download project files (code -> download ZIP)
+- Download the [latest release](https://github.com/Shynee1/TiktokVideoCreator/releases)
 - Download required [background gameplay files](https://drive.google.com/drive/folders/1TWEpfcW3aq6tcTMpgAP9RhPVDR6HpWza?usp=sharing)
 - Add `background_videos` to project's `assets` folder
 - Create [Reddit Developer Application](https://old.reddit.com/prefs/apps/)
 - Add Reddit credentials to `praw.ini`
+- 
 - Run `main.py`

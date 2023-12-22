@@ -1,0 +1,4 @@
+moviepy
+whisper-timestamped
+praw
+requests
